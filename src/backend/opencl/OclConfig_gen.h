@@ -113,6 +113,7 @@ size_t inline generate<Algorithm::RANDOM_X>(Threads<OclThreads> &threads, const 
     auto rx  = OclThreads(devices, Algorithm::RX_0);
     auto wow = OclThreads(devices, Algorithm::RX_WOW);
     auto arq = OclThreads(devices, Algorithm::RX_ARQ);
+    auto qmr = OclThreads(devices, Algorithm::RX_QMR);
 
     if (!threads.isExist(Algorithm::RX_WOW) && wow != rx) {
         count += threads.move(Algorithm::kRX_WOW, std::move(wow));
@@ -120,6 +121,10 @@ size_t inline generate<Algorithm::RANDOM_X>(Threads<OclThreads> &threads, const 
 
     if (!threads.isExist(Algorithm::RX_ARQ) && arq != rx) {
         count += threads.move(Algorithm::kRX_ARQ, std::move(arq));
+    }
+
+    if (!threads.isExist(Algorithm::RX_QMR) && qmr != rx) {
+        count += threads.move(Algorithm::kRX_QMR, std::move(qmr));
     }
 
     count += threads.move(Algorithm::kRX, std::move(rx));

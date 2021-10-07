@@ -40,6 +40,7 @@ public:
         KEVA,
         RAVEN,
         WOWNERO,
+        QUENERO,
         MAX
     };
 

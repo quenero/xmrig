@@ -234,6 +234,18 @@ const xmrig::WalletAddress::TagInfo &xmrig::WalletAddress::tagInfo(uint64_t tag)
         { 0x54,     { Coin::GRAFT,      TESTNET,    PUBLIC,         28881,  28882 } },
         { 0x55,     { Coin::GRAFT,      TESTNET,    INTEGRATED,     28881,  28882 } },
         { 0x70,     { Coin::GRAFT,      TESTNET,    SUBADDRESS,     28881,  28882 } },
+
+        { 0x12,     { Coin::QUENERO,     MAINNET,    PUBLIC,         19991,  19992 } },
+        { 0x13,     { Coin::QUENERO,     MAINNET,    INTEGRATED,     19991,  19992 } },
+        { 0x2a,     { Coin::QUENERO,     MAINNET,    SUBADDRESS,     19991,  19992 } },
+
+        { 0x35,     { Coin::QUENERO,     TESTNET,    PUBLIC,         29991,  29992 } },
+        { 0x36,     { Coin::QUENERO,     TESTNET,    INTEGRATED,     29991,  29992 } },
+        { 0x3f,     { Coin::QUENERO,     TESTNET,    SUBADDRESS,     29991,  29992 } },
+
+        { 0x18,     { Coin::QUENERO,     STAGENET,   PUBLIC,         39991,  39992 } },
+        { 0x19,     { Coin::QUENERO,     STAGENET,   INTEGRATED,     39991,  39992 } },
+        { 0x24,     { Coin::QUENERO,     STAGENET,   SUBADDRESS,     39991,  39992 } },
     };
 
     const auto it = tags.find(tag);

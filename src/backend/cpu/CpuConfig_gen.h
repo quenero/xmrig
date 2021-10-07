@@ -110,6 +110,7 @@ size_t inline generate<Algorithm::RANDOM_X>(Threads<CpuThreads> &threads, uint32
     size_t count = 0;
     auto cpuInfo = Cpu::info();
     auto wow     = cpuInfo->threads(Algorithm::RX_WOW, limit);
+    auto qmr     = cpuInfo->threads(Algorithm::RX_QMR, limit);
 
     if (!threads.isExist(Algorithm::RX_ARQ)) {
         auto arq = cpuInfo->threads(Algorithm::RX_ARQ, limit);
@@ -135,6 +136,10 @@ size_t inline generate<Algorithm::RANDOM_X>(Threads<CpuThreads> &threads, uint32
 
     if (!threads.isExist(Algorithm::RX_WOW)) {
         count += threads.move(Algorithm::kRX_WOW, std::move(wow));
+    }
+
+    if (!threads.isExist(Algorithm::RX_QMR)) {
+        count += threads.move(Algorithm::kRX_QMR, std::move(qmr));
     }
 
     count += generate(Algorithm::kRX, threads, Algorithm::RX_0, limit);
