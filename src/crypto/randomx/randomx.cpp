@@ -107,7 +107,7 @@ RandomX_ConfigurationKeva::RandomX_ConfigurationKeva()
 	ScratchpadL3_Size = 1048576;
 }
 
-RandomX_ConfigurationKeva::RandomX_ConfigurationQuenero()
+RandomX_ConfigurationQuenero::RandomX_ConfigurationQuenero()
 {
 	ArgonSalt = "RandomQ\x06";
 	ProgramSize = 320;
