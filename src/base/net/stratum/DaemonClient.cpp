@@ -232,6 +232,10 @@ void xmrig::DaemonClient::setPool(const Pool &pool)
     if (!m_coin.isValid() && pool.algorithm() == Algorithm::RX_WOW) {
         m_coin = Coin::WOWNERO;
     }
+        if (!m_coin.isValid() && pool.algorithm() == Algorithm::RX_QMR) {
+        m_coin = Coin::QUENERO;
+    }
+    
 }
 
 
@@ -379,9 +383,9 @@ bool xmrig::DaemonClient::parseJob(const rapidjson::Value &params, int *code)
         return jobError("Empty block template received from daemon."); // FIXME
     }
 
-    if (!m_blocktemplate.parse(blocktemplate, m_coin)) {
+   /* if (!m_blocktemplate.parse(blocktemplate, m_coin)) {
         return jobError("Invalid block template received from daemon.");
-    }
+    }*/
 
 #   ifdef XMRIG_PROXY_PROJECT
     const size_t k = m_blocktemplate.offset(BlockTemplate::MINER_TX_PREFIX_OFFSET);
